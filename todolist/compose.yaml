@@ -1,0 +1,14 @@
+services:
+  app:
+    build: .
+    volumes:
+    - type: bind
+    #ローカルpcのapp
+      source: ./app
+    #container内のapp
+      target: /user/src/app
+    ports:
+    - 3001:3000
+    stdin_open: true
+    environment:
+    - CHOKIDAR_USEPOLLING=true
